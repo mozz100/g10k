@@ -1,6 +1,6 @@
 See https://registry.hub.docker.com/u/library/rails/
 
-### Build image and install gems
+### Build image
 
 docker build -t g10k-rails .
 
@@ -10,10 +10,10 @@ docker run -v "$PWD":/usr/src/app --name g10k-rails -p 8080:3000 -d g10k-rails  
 
 Then visit http://docker:8080
 
-### Equivalent to 'bundle install':
+### Equivalent to 'bundle install'. Creates Gemfile.lock
 
 docker run --rm -v "$PWD":/usr/src/app -w /usr/src/app ruby:2.1 bundle install
 
-Equivalent to 'rails x':
+### Equivalent to 'rails x':
 
-docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app rails rails x
+docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app g10k-rails rails
