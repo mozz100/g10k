@@ -1,11 +1,26 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  email: MyString
-  expected_duration: 9.99
+tortoise:
+  name: Tortoise
+  email: tortoise@example.com
+  expected_duration: 999.9
 
-two:
-  name: MyString
-  email: MyString
-  expected_duration: 9.99
+sloth:
+  name: Sloth
+  email: sloth@example.com
+  expected_duration: 750
+
+pig:
+  name: Pig
+  email: pig@example.com
+  expected_duration: 350
+
+dog:
+  name: Dog
+  email: dog@example.com
+  expected_duration: 180
+
+hare:
+  name: Hare
+  email: hare@example.com
+  expected_duration: 59.9
