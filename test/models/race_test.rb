@@ -8,5 +8,8 @@ class RaceTest < ActiveSupport::TestCase
   	assert Race.count >= 4
   	Race.reset
   	assert Race.count == 1
+    the_race = Race.first
+    assert the_race.runners.count == Runner.count
+    assert the_race.runners.count > 0
   end
 end
