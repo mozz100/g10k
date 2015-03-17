@@ -12,6 +12,12 @@ class Race < ActiveRecord::Base
         !self.start_time.nil?
     end
 
+    def state
+        return "unstarted" if not self.started?
+        return "finished"  if self.runners.select{|r| r.finished? }.length == self.runners.count
+        "running"
+    end
+
     def slowest_runner
         self.runners.order("expected_duration DESC, id ASC").first
     end

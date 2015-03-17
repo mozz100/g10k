@@ -9,7 +9,7 @@ class CheckPointTest < ActiveSupport::TestCase
     @hare     = @the_race.runners.find(runners(:hare).id)
   end
 
-  test "should predict race" do
+  test "should predict race properly" do
     @the_race.start!(actual_time: 500.seconds.ago)
 
     assert @the_race.expected_finish_time > Time.now  # tortoise 999.9
