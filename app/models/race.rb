@@ -30,4 +30,11 @@ class Race < ActiveRecord::Base
         self.start_time = actual_time
         self.save
     end
+
+    def as_json
+        this = super
+        this["state"] = self.state
+        this["runners"] = self.runners.as_json
+        return this
+    end
 end

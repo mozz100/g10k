@@ -24,10 +24,33 @@ class Runner < ActiveRecord::Base
     end
 
     def latest_checkpoint
-        self.check_points.order("check_time DESC").last
+        self.check_points.order("percent DESC").first
     end
 
     def finished?
-        latest_checkpoint and latest_checkpoint.percent >= 100
+        latest_checkpoint and latest_checkpoint.percent == 100
+    end
+
+    def started?(actual_time: Time.now)
+        self.start_time and self.start_time >= actual_time
+    end
+
+    def actual_finish_time
+        self.latest_checkpoint.check_time if self.finished?
+    end
+
+    def status
+        return "finished" if self.finished?
+        return "running" if self.started?
+        return "unstarted"
+    end
+
+    def as_json
+        this = super(include: :check_points)
+        this["expected_finish_time"] = self.expected_finish_time
+        this["start_time"] = self.start_time
+        this["actual_finish_time"] = self.actual_finish_time
+        this["status"] = self.status
+        return this
     end
 end
