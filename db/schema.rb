@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150313135243) do
+ActiveRecord::Schema.define(version: 20150317040203) do
+
+  create_table "check_points", force: :cascade do |t|
+    t.integer  "runner_id"
+    t.decimal  "percent"
+    t.datetime "check_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "races", force: :cascade do |t|
     t.datetime "start_time"
