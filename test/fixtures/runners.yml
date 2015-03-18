@@ -4,23 +4,28 @@ tortoise:
   name: Tortoise
   email: tortoise@example.com
   expected_duration: 999.9
+  race: g10k
 
 sloth:
   name: Sloth
   email: sloth@example.com
   expected_duration: 750
+  race: g10k
 
 pig:
   name: Pig
   email: pig@example.com
   expected_duration: 350
+  race: g10k
 
 dog:
   name: Dog
   email: dog@example.com
   expected_duration: 180
+  race: g10k
 
 hare:
   name: Hare
   email: hare@example.com
   expected_duration: 59.9
+  race: g10k

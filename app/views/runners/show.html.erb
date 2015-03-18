@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @runner.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @runner.email %>
+</p>
+
+<p>
+  <strong>Expected duration:</strong>
+  <%= number_with_precision(@runner.expected_duration, precision: 2) %>
+</p>
+
+<%= link_to 'Edit', edit_runner_path(@runner) %> |
+<%= link_to 'Back', runners_path %>
