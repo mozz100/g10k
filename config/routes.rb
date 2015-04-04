@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :runners
+  resources :runners do 
+    collection do
+      post :reset
+    end
+  end
 
   root 'welcome#index'
 

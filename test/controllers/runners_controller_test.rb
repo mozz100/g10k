@@ -46,4 +46,11 @@ class RunnersControllerTest < ActionController::TestCase
 
     assert_redirected_to runners_path
   end
+
+  test "should reset race" do
+    initial_id = races(:g10k).id
+    post :reset
+    assert_not_equal initial_id, Race.first.id
+    assert_redirected_to root_url
+  end
 end
