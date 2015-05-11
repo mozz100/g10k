@@ -5,20 +5,42 @@
         <p ng-hide="runners.length > 0">Loading...</p>
         <table border="1" ng-show="runners.length > 0">
             <tr>
-                <th>Name</th>
-                <th>Race time</th>
-                <th>Nominated time</th>
-                <th>Predicted time</th>
-                <th>&#x1D6AB;<sub>PN</sub></th>
-                <th>&#x1D6AB;<sub>AN</sub></th>
+                <th>
+                    <a ng-click="sortBy('name')">
+                    Name
+                    </a>
+                </th>
+                <th>
+                    Race time
+                </th>
+                <th>
+                    <a ng-click="sortBy('nominatedDuration')">
+                    Nominated time
+                    </a>
+                </th>
+                <th>
+                    <a ng-click="sortBy('predictedDuration')">
+                    Predicted time
+                    </a>
+                </th>
+                <th>
+                    <a ng-click="sortBy('deltaPrediction')">
+                    &#x1D6AB;<sub>PN</sub>
+                    </a>
+                </th>
+                <th>
+                    <a ng-click="sortBy('deltaActual')">
+                    &#x1D6AB;<sub>AN</sub>
+                    </a>
+                </th>
             </tr>
-            <tr ng-repeat="runner in runners">
+            <tr ng-repeat="runner in runners | orderBy:predicate ">
                 <td>{{ runner.name }}</td>
                 <td class="time time-live" data-time="{{ runner.startTime.getTime() }}"></td>
                 <td class="time">{{ runner.nominatedDuration | displayTime }}</td>
-                <td class="time">{{ runner.getPredictedDuration() | displayTime }}</td>
-                <td class="time">{{ runner.getDeltaPrediction() | displayTime }}</td>
-                <td class="time">{{ runner.getDeltaActual() | displayTime }}</td>
+                <td class="time">{{ runner.predictedDuration | displayTime }}</td>
+                <td class="time">{{ runner.deltaPrediction | displayTime }}</td>
+                <td class="time">{{ runner.deltaActual | displayTime }}</td>
             </tr>
         </table>
     </div>

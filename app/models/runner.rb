@@ -49,6 +49,7 @@ class Runner < ActiveRecord::Base
 
     def as_json
         this = super(include: :check_points)
+        this["expected_duration"] = self.expected_duration.to_f
         this["expected_finish_time"] = self.expected_finish_time
         this["start_time"] = self.start_time
         this["actual_finish_time"] = self.actual_finish_time
