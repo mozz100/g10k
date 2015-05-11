@@ -7,10 +7,18 @@
             <tr>
                 <th>Name</th>
                 <th>Race time</th>
+                <th>Nominated time</th>
+                <th>Predicted time</th>
+                <th>&#x1D6AB;<sub>PN</sub></th>
+                <th>&#x1D6AB;<sub>AN</sub></th>
             </tr>
             <tr ng-repeat="runner in runners">
                 <td>{{ runner.name }}</td>
-                <td class="time" data-time="{{ runner.startTime.getTime() }}"></td>
+                <td class="time time-live" data-time="{{ runner.startTime.getTime() }}"></td>
+                <td class="time">{{ runner.nominatedDuration | displayTime }}</td>
+                <td class="time">{{ runner.getPredictedDuration() | displayTime }}</td>
+                <td class="time">{{ runner.getDeltaPrediction() | displayTime }}</td>
+                <td class="time">{{ runner.getDeltaActual() | displayTime }}</td>
             </tr>
         </table>
     </div>

@@ -6,6 +6,8 @@ class WelcomeController < ApplicationController
 
   def race
   	@race = Race.first
-  	render text: JSON.pretty_generate(@race.as_json), content_type: "text/json"
+  	response.headers["Access-Control-Allow-Origin"] = "*"
+  	render text: JSON.pretty_generate(@race.as_json),
+  		content_type: "text/json"
   end
 end
