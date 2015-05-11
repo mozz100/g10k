@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+.time {
+	font-family: monospace;
+	text-align: right;
+}

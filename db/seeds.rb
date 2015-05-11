@@ -17,5 +17,5 @@ Runner.create name: "Dog", email: "dog@example.com", expected_duration: 100.0, r
 
 Runner.create name: "Hare", email: "hare@example.com", expected_duration: 29.9, race_id: race.id
 
-race.start_time = Time.now + 2.hours
+race.start_time = Time.now + 20.seconds
 race.save

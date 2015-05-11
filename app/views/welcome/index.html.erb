@@ -1,2 +1,17 @@
 <h1>Welcome#index</h1>
 <p>Find me in app/views/welcome/index.html.erb</p>
+<div ng-app="g10kApp">
+    <div ng-controller="RunnersCtrl">
+        <p ng-hide="runners.length > 0">Loading...</p>
+        <table border="1" ng-show="runners.length > 0">
+            <tr>
+                <th>Name</th>
+                <th>Race time</th>
+            </tr>
+            <tr ng-repeat="runner in runners">
+                <td>{{ runner.name }}</td>
+                <td class="time" data-time="{{ runner.startTime.getTime() }}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
