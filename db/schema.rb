@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 20150317040203) do
   create_table "runners", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.decimal  "expected_duration"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.decimal  "expected_duration", precision: 8, scale: 2
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.integer  "race_id"
   end
 

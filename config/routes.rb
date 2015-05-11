@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  resources :runners do 
+    collection do
+      post :reset
+    end
+  end
 
+  root 'welcome#index'
+  get 'race.json' => 'welcome#race'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

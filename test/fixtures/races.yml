@@ -1,7 +1,4 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  start_time: 2015-03-12 18:18:10
-
-two:
+g10k:
   start_time: 2015-03-12 18:18:10

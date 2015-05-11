@@ -2,6 +2,8 @@ class Runner < ActiveRecord::Base
 	belongs_to :race
     has_many :check_points
 
+    validates :name, :email, :expected_duration, :race_id, presence: true
+
     def start_time
         self.race.started? ? self.race.expected_finish_time - self.expected_duration.seconds : nil
     end
