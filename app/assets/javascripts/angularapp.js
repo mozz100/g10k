@@ -55,7 +55,7 @@ g10kApp.controller('RunnersCtrl', ['$scope', '$http', '$interval', function ($sc
     $scope.predicate = $scope.getPredicate();
 
     function refreshData() {
-        $http.get('http://docker:8080/race.json').success(function(data) {
+        $http.get('/race.json').success(function(data) {
             $scope.runners = [];
             for (var i = 0; i < data.runners.length; i++) {
                 var runner = new Runner(data.runners[i]);
