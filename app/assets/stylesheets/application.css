@@ -17,4 +17,5 @@
 .time {
 	font-family: monospace;
 	text-align: right;
+	/*background-color: rgba(0,0,255,0.4);*/
 }

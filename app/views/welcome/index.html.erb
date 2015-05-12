@@ -36,11 +36,14 @@
             </tr>
             <tr ng-repeat="runner in runners | orderBy:predicate ">
                 <td>{{ runner.name }}</td>
-                <td class="time time-live" data-time="{{ runner.startTime.getTime() }}"></td>
+                <td ng-class="{time: true, 'time-live': runner.status != 'finished'}" data-time="{{ runner.startTime.getTime() }}">
+                    {{ runner.actualDuration | displayTime }}
+                </td>
                 <td class="time">{{ runner.nominatedDuration | displayTime }}</td>
                 <td class="time">{{ runner.predictedDuration | displayTime }}</td>
                 <td class="time">{{ runner.deltaPrediction | displayTime }}</td>
                 <td class="time">{{ runner.deltaActual | displayTime }}</td>
+                <td>{{ runner.status }}</td>
             </tr>
         </table>
     </div>

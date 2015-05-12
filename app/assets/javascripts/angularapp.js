@@ -24,6 +24,7 @@ var Runner = function(data) {
     this.expectedFinishTime = new Date(data.expected_finish_time);
     this.predictedDuration = (this.expectedFinishTime - this.startTime)/1000;
     this.deltaPrediction = this.predictedDuration - this.nominatedDuration;
+    this.status = data.status;
     if (data.actual_finish_time === null) {
         this.actualFinishTime = null;
         this.actualDuration = null;
