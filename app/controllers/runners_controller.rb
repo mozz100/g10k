@@ -1,5 +1,5 @@
 class RunnersController < ApplicationController
-  before_action :set_runner, only: [:show, :edit, :update, :destroy]
+  before_action :set_runner, only: [:show, :edit, :update, :destroy, :checkpoint]
 
   # GET /runners
   # GET /runners.json
@@ -65,6 +65,15 @@ class RunnersController < ApplicationController
   def reset
     Race.reset
     redirect_to root_url
+  end
+
+  def checkpoint
+    check_time = Time.at(params[:check_time].to_i).to_datetime
+    
+    @checkpoint = CheckPoint.create(runner: @runner, check_time: check_time, percent: params[:percent].to_f)
+
+    render text: JSON.pretty_generate(@checkpoint.as_json),
+      content_type: "text/json"
   end
 
   private

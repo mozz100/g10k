@@ -3,6 +3,9 @@ Rails.application.routes.draw do
     collection do
       post :reset
     end
+    member do
+      post :checkpoint
+    end
   end
 
   root 'welcome#index'

@@ -47,6 +47,17 @@ class RunnersControllerTest < ActionController::TestCase
     assert_redirected_to runners_path
   end
 
+  test "should create checkpoint" do
+    now = Time.now
+    ct = now.getutc.to_i
+    assert_difference('CheckPoint.count', +1) do
+      post :checkpoint, id: @runner, percent: 50, check_time: ct
+    end
+    assert_response :success
+    assert_equal now.getutc.to_s, @runner.latest_checkpoint.check_time.getutc.to_s
+    assert_equal 50,  @runner.latest_checkpoint.percent
+  end
+
   test "should reset race" do
     initial_id = races(:g10k).id
     post :reset
