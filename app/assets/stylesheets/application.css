@@ -19,3 +19,15 @@
 	text-align: right;
 	/*background-color: rgba(0,0,255,0.4);*/
 }
+
+.action {
+	text-align: center;
+	width: 3em;
+	height: 3em;
+}
+
+.action input {
+	width: 100%;
+	height: 3em;
+
+}

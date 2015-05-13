@@ -62,7 +62,7 @@ class RunnersControllerTest < ActionController::TestCase
     initial_id = races(:g10k).id
     post :reset
     assert_not_equal initial_id, Race.first.id
-    assert_redirected_to root_url
+    assert_response :success
   end
 
   test "should start race" do

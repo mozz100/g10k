@@ -47,6 +47,7 @@ function getRaceTimeDisplay(now, startTime) {
 
 g10kApp.controller('RunnersCtrl', ['$scope', '$http', '$interval', function ($scope, $http, $interval) {
     $scope.runners = [];
+    $scope.race = {};
     $scope.sortProp = 'nominatedDuration';
     $scope.reversed = false;
 
@@ -58,6 +59,7 @@ g10kApp.controller('RunnersCtrl', ['$scope', '$http', '$interval', function ($sc
     function refreshData() {
         $http.get('/race.json').success(function(data) {
             $scope.runners = [];
+            $scope.race = data;
             for (var i = 0; i < data.runners.length; i++) {
                 var runner = new Runner(data.runners[i]);
                 $scope.runners.push(runner);

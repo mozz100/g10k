@@ -36,7 +36,9 @@
             </tr>
             <tr ng-repeat="runner in runners | orderBy:predicate ">
                 <td>{{ runner.name }}</td>
-                <td ng-class="{time: true, 'time-live': runner.status != 'finished'}" data-time="{{ runner.startTime.getTime() }}">
+                <td class="time">
+                    <span data-time="{{ runner.startTime.getTime() }}" ng-show="race.state != 'unstarted'" ng-class="{'time-live': runner.status != 'finished'}" />
+
                     {{ runner.actualDuration | displayTime }}
                 </td>
                 <td class="time">{{ runner.nominatedDuration | displayTime }}</td>

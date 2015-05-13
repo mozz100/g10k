@@ -1,0 +1,35 @@
+<div ng-app="g10kAdminApp">
+	<div ng-controller="AdminCtrl">
+	    <div style="height: 2em;">
+	        <button ng-click="startRace()" ng-show="race.state == 'unstarted'">Start race</button>
+	        <button ng-click="resetRace()" ng-show="race.state == 'running'">Reset race</button>
+	    </div>
+
+	    <table border=1>
+	    	<tr>
+	    		<th>Name</th>
+	    		<th>50%</th>
+	    		<th>Finished</th>
+	    	</tr>
+	    	<% for runner in @runners %>
+
+	    	<tr>
+	    		<td><%= runner.name %></td>
+	    		<td class="action">
+	    			<input type="radio" name="action" ng-model="checkpoint" value="<%= runner.id %>|50"></input>
+	    		</td>
+	    		<td class="action">
+					<input type="radio" name="action" ng-model="checkpoint" value="<%= runner.id %>|100"></input>
+	    		</td>
+	    	</tr>
+	    	<% end %>
+	    </table>
+
+	    <button ng-click="submitAction()">NOW!</button>
+
+	    <pre>{{ checkpoint }}</pre>
+
+	    <pre>{{ race }}</pre>
+	</div>
+
+</div>

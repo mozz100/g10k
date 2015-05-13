@@ -1,5 +1,6 @@
 class RunnersController < ApplicationController
   before_action :set_runner, only: [:show, :edit, :update, :destroy, :checkpoint]
+  skip_before_filter :verify_authenticity_token, :only => [:start_race, :reset, :checkpoint]
 
   # GET /runners
   # GET /runners.json
@@ -64,23 +65,20 @@ class RunnersController < ApplicationController
 
   def reset
     Race.reset
-    redirect_to root_url
+    output_race_data
   end
 
   def start_race
     @race = Race.first
     start_time = Time.at(params[:start_time].to_i).to_datetime
     @race.start!(actual_time: start_time)
-    render json: {started: true}
+    output_race_data
   end
 
   def checkpoint
     check_time = Time.at(params[:check_time].to_i).to_datetime
-    
     @checkpoint = CheckPoint.create(runner: @runner, check_time: check_time, percent: params[:percent].to_f)
-
-    render text: JSON.pretty_generate(@checkpoint.as_json),
-      content_type: "text/json"
+    output_race_data
   end
 
   private
