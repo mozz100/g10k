@@ -34,7 +34,7 @@ class Runner < ActiveRecord::Base
     end
 
     def started?(actual_time: Time.now)
-        self.start_time and self.start_time >= actual_time
+        self.start_time and self.start_time <= actual_time
     end
 
     def actual_finish_time
