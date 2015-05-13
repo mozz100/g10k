@@ -64,4 +64,16 @@ class RunnersControllerTest < ActionController::TestCase
     assert_not_equal initial_id, Race.first.id
     assert_redirected_to root_url
   end
+
+  test "should start race" do
+    Race.reset
+    assert !Race.first.started?
+    gun = Time.now
+    post :start_race, start_time: gun.to_i
+    assert_response :success
+    assert Race.first.started?
+    assert_equal gun.getutc.to_s, Race.first.start_time.getutc.to_s
+  end
+
+
 end

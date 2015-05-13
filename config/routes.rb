@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :runners do 
     collection do
       post :reset
+      post :start_race
     end
     member do
       post :checkpoint

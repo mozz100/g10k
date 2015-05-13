@@ -67,6 +67,13 @@ class RunnersController < ApplicationController
     redirect_to root_url
   end
 
+  def start_race
+    @race = Race.first
+    start_time = Time.at(params[:start_time].to_i).to_datetime
+    @race.start!(actual_time: start_time)
+    render json: {started: true}
+  end
+
   def checkpoint
     check_time = Time.at(params[:check_time].to_i).to_datetime
     
