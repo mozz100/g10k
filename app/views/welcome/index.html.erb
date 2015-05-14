@@ -42,8 +42,16 @@
                     {{ runner.actualDuration | displayTime }}
                 </td>
                 <td class="time">{{ runner.nominatedDuration | displayTime }}</td>
-                <td class="time">{{ runner.predictedDuration | displayTime }}</td>
-                <td class="time">{{ runner.deltaPrediction | displayTime }}</td>
+                <td class="time">
+                    <span ng-hide="runner.status == 'finished'">
+                        {{ runner.predictedDuration | displayTime }}
+                    </span>
+                </td>
+                <td class="time">
+                    <span ng-hide="runner.status == 'finished'">
+                        {{ runner.deltaPrediction | displayTime }}
+                    </span>
+                </td>
                 <td class="time">{{ runner.deltaActual | displayTime }}</td>
                 <td>{{ runner.status }}</td>
             </tr>
