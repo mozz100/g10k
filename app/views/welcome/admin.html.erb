@@ -10,26 +10,27 @@
 	    		<th>Name</th>
 	    		<th>50%</th>
 	    		<th>Finished</th>
+	    		<th>Status</th>
 	    	</tr>
 	    	<% for runner in @runners %>
 
 	    	<tr>
 	    		<td><%= runner.name %></td>
 	    		<td class="action">
-	    			<input type="radio" name="action" ng-model="checkpoint" value="<%= runner.id %>|50"></input>
+	    			<input ng-disabled="getCheckPoint(<%= runner.id %>, 50)"  type="radio" name="action" ng-model="checkpoint" value="<%= runner.id %>|50"></input>
 	    		</td>
 	    		<td class="action">
-					<input type="radio" name="action" ng-model="checkpoint" value="<%= runner.id %>|100"></input>
+					<input ng-disabled="getCheckPoint(<%= runner.id %>, 100)" type="radio" name="action" ng-model="checkpoint" value="<%= runner.id %>|100"></input>
+	    		</td>
+	    		<td>
+	    			{{ getStatus(<%= runner.id %>) }}
 	    		</td>
 	    	</tr>
 	    	<% end %>
 	    </table>
 
-	    <button ng-click="submitAction()">NOW!</button>
+	    <button ng-click="submitAction()" ng-show="race.state == 'running'">NOW!</button>
 
-	    <pre>{{ checkpoint }}</pre>
-
-	    <pre>{{ race }}</pre>
 	</div>
 
 </div>

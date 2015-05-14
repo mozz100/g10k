@@ -29,5 +29,8 @@
 .action input {
 	width: 100%;
 	height: 3em;
+}
 
+.action input[disabled] {
+	display: none;
 }

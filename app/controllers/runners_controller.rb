@@ -76,6 +76,9 @@ class RunnersController < ApplicationController
   end
 
   def checkpoint
+    # Delete any existing checkpoint with the same parameters
+    CheckPoint.where(runner_id: @runner.id, percent: params[:percent].to_f).delete_all
+
     check_time = Time.at(params[:check_time].to_i).to_datetime
     @checkpoint = CheckPoint.create(runner: @runner, check_time: check_time, percent: params[:percent].to_f)
     output_race_data
