@@ -2,7 +2,7 @@ var g10kAdminApp = angular.module('g10kAdminApp', []);
 
 g10kAdminApp.controller('AdminCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.race = {};
-    $scope.checkpoint = '';
+    $scope.checkpoint = {};
 
     function updateRace() {
         $http.get('/race.json').success(function(data) {
@@ -53,8 +53,8 @@ g10kAdminApp.controller('AdminCtrl', ['$scope', '$http', function ($scope, $http
 
     $scope.submitAction = function() {
         var atTime = (new Date()).getTime() / 1000.0;
-        var runnerId = $scope.checkpoint.split("|")[0];
-        var percent  = $scope.checkpoint.split("|")[1];
+        var runnerId = $scope.checkpoint.value.split("|")[0];
+        var percent  = $scope.checkpoint.value.split("|")[1];
         console.log(runnerId, percent);
         doPOST('/runners/' + runnerId + '/checkpoint', {percent: percent, check_time: atTime});
     }
