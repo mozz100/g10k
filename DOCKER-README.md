@@ -10,9 +10,9 @@ docker run -v "$PWD":/usr/src/app --name g10k-rails -p 8080:3000 -d g10k-rails  
 
 Then visit http://docker:8080
 
-### Equivalent to 'bundle install'. Creates Gemfile.lock
+### Equivalent to 'bundle install'. Creates Gemfile.lock. Run build command again afterwards.
 
-docker run --rm -v "$PWD":/usr/src/app -w /usr/src/app ruby:2.1 bundle install
+docker run --rm -v "$PWD":/usr/src/app -w /usr/src/app ruby:2.2.1 bundle install
 
 ### Equivalent to 'rails x':
 
