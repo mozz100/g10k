@@ -11,3 +11,7 @@
 // about supported directives.
 //
 //= require_tree .
+
+$(function() {
+    FastClick.attach(document.body);
+});
