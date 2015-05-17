@@ -34,6 +34,8 @@ class Race < ActiveRecord::Base
 
     def as_json
         this = super
+        this["start_time"] = this["start_time"].to_i * 1000 if this["start_time"]
+        ["created_at", "updated_at"].each {|x| this.delete(x)}
         this["state"] = self.state
         this["runners"] = self.runners.as_json
         return this

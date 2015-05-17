@@ -48,11 +48,13 @@ class Runner < ActiveRecord::Base
     end
 
     def as_json
-        this = super(include: :check_points)
+        this = super
+        this["check_points"] = self.check_points.map{|p| p.as_json}
+        ["created_at", "updated_at", "race_id", "email"].each {|x| this.delete(x)}
         this["expected_duration"] = self.expected_duration.to_f
-        this["expected_finish_time"] = self.expected_finish_time
-        this["start_time"] = self.start_time
-        this["actual_finish_time"] = self.actual_finish_time
+        this["expected_finish_time"] = self.expected_finish_time ? self.expected_finish_time.to_i * 1000 : nil
+        this["start_time"] = self.start_time ? self.start_time.to_i * 1000 : nil
+        this["actual_finish_time"] = self.actual_finish_time ? self.actual_finish_time.to_i * 1000 : nil
         this["status"] = self.status
         return this
     end

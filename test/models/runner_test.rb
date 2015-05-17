@@ -91,7 +91,7 @@ class RunnerTest < ActiveSupport::TestCase
       assert_equal "finished", runner["status"]
       assert_not_nil runner["expected_finish_time"]
       assert_not_nil runner["start_time"]
-      assert_in_delta 0, @the_race.expected_finish_time - runner["actual_finish_time"], 0.01
+      assert_in_delta 0, @the_race.expected_finish_time.to_i * 1000 - runner["actual_finish_time"], 0.01
       assert_equal 2, runner["check_points"].length
     end
     
