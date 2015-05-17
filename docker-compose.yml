@@ -1,0 +1,12 @@
+web:
+  build: .
+  volumes: 
+    - .:/usr/src/app
+  ports:
+    - "8080:3000"
+  links:
+    - db
+db:
+  image: postgres
+  environment:
+    - POSTGRES_PASSWORD=letmein
