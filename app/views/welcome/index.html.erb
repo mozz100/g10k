@@ -5,20 +5,20 @@
             <tr>
                 <th>
                     <a ng-click="sortBy('name')">
-                    Name
+                    Name / state
                     </a>
                 </th>
                 <th>
-                    Race time
+                    Race&nbsp;time
                 </th>
                 <th>
                     <a ng-click="sortBy('nominatedDuration')">
-                    Nominated time
+                    Nom&nbsp;time
                     </a>
                 </th>
                 <th>
                     <a ng-click="sortBy('predictedDuration')">
-                    Predicted time
+                    Pred&nbsp;time
                     </a>
                 </th>
                 <th>
@@ -33,7 +33,10 @@
                 </th>
             </tr>
             <tr ng-repeat="runner in runners | orderBy:predicate ">
-                <td>{{ runner.name }}</td>
+                <td>
+                    <b>{{ runner.name }}</b><br/>
+                    <span class="text-small">{{ runner.status }}</span>
+                </td>
                 <td class="time">
                     <span data-time="{{ runner.startTime.getTime() }}" ng-show="race.state != 'unstarted'" ng-class="{'time-live': runner.status != 'finished'}" />
 
@@ -51,7 +54,6 @@
                     </span>
                 </td>
                 <td class="time">{{ runner.deltaActual | displayTime }}</td>
-                <td>{{ runner.status }}</td>
             </tr>
         </table>
     </div>
