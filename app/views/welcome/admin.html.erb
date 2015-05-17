@@ -1,11 +1,11 @@
 <div ng-app="g10kAdminApp">
 	<div ng-controller="AdminCtrl">
 	    <div style="height: 2em;">
-	        <button ng-click="startRace()" ng-show="race.state == 'unstarted'">Start race</button>
-	        <button ng-click="resetRace()">Reset race</button>
+	        <button class="btn btn-default" ng-click="startRace()" ng-show="race.state == 'unstarted'">Start race</button>
+	        <button class="btn btn-default" ng-click="resetRace()">Reset race</button>
 	    </div>
 
-	    <table border=1>
+	    <table class="table table-striped table-bordered">
 	    	<tr>
 	    		<th>Name</th>
 	    		<th>50%</th>
@@ -24,7 +24,7 @@
 	    	</tr>
 	    </table>
 
-	    <button ng-click="submitAction()" ng-show="race.state == 'running'">NOW!</button>
+	    <button class="btn btn-large btn-primary" ng-click="submitAction()" ng-show="race.state == 'running'">NOW!</button>
 	    <pre>{{ checkpoint }}</pre>
 	</div>
 
