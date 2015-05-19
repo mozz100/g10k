@@ -20,6 +20,8 @@ var Runner = function(data) {
     // instance creation here
     this.name = data.name;
     this.startTime = new Date(data.start_time);
+    this.raceNumber = data.race_number;
+    this.thumbnailUrl = data.thumbnail_url || '/images/nobody.png';
     this.nominatedDuration = data.expected_duration;
     this.expectedFinishTime = new Date(data.expected_finish_time);
     this.predictedDuration = (this.expectedFinishTime - this.startTime)/1000;

@@ -3,25 +3,33 @@
         <p ng-hide="runners.length > 0">Loading...</p>
         <table class="table table-striped table-condensed" ng-show="runners.length > 0">
             <tr>
+                <th class="hidden-xs text-right">
+                    <a ng-click="sortBy('raceNumber')">
+                        #
+                    </a>
+                </th>
                 <th>
                     <a ng-click="sortBy('name')">
-                    Name / state
+                    Name/state
                     </a>
                 </th>
                 <th class="text-right">
-                    Race&nbsp;time
+                    <span class="hidden-xs">Race&nbsp;time</span>
+                    <span class="visible-xs">Time</span>
                 </th>
                 <th class="text-right">
                     <a ng-click="sortBy('nominatedDuration')">
-                    Nom&nbsp;time
+                    <span class="hidden-xs">Nominated</span>
+                    <span class="visible-xs">Nom</span>
                     </a>
                 </th>
-                <th class="text-right">
+                <th class="text-right hidden-xs">
                     <a ng-click="sortBy('predictedDuration')">
-                    Pred&nbsp;time
+                    <span class="hidden-xs">Predicted</span>
+                    <span class="visible-xs">Pre</span>
                     </a>
                 </th>
-                <th class="text-right">
+                <th class="text-right hidden-xs">
                     <a ng-click="sortBy('deltaPrediction')">
                     &#x1D6AB;<sub>PN</sub>
                     </a>
@@ -33,9 +41,13 @@
                 </th>
             </tr>
             <tr ng-repeat="runner in runners | orderBy:predicate ">
-                <td>
-                    <b>{{ runner.name }}</b><br/>
-                    <span class="text-small">{{ runner.status }}</span>
+                <td class="hidden-xs" style="padding: 10px 0; text-align: right;">
+                    <span class="runnernumber">{{ runner.raceNumber }}</span>
+                </td>
+                <td nowrap="nowrap">
+                    <img class="runnerthumb img-circle" ng-src="{{ runner.thumbnailUrl }}" />
+                    <b class="runnername">{{ runner.name }}</b>
+                    <span class="runnerstatus text-small">{{ runner.status }}</span>
                 </td>
                 <td class="time">
                     <span data-time="{{ runner.startTime.getTime() }}" ng-show="race.state != 'unstarted'" ng-class="{'time-live': runner.status != 'finished'}" />
@@ -43,12 +55,12 @@
                     {{ runner.actualDuration | displayTime }}
                 </td>
                 <td class="time">{{ runner.nominatedDuration | displayTime }}</td>
-                <td class="time">
+                <td class="time hidden-xs">
                     <span ng-hide="runner.status == 'finished'">
                         {{ runner.predictedDuration | displayTime }}
                     </span>
                 </td>
-                <td class="time">
+                <td class="time hidden-xs">
                     <span ng-hide="runner.status == 'finished'">
                         {{ runner.deltaPrediction | displayTime }}
                     </span>

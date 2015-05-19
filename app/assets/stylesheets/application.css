@@ -14,9 +14,17 @@
  *= require_self
  */
 
-.time {
+body {
+	font-size: 12px;
+	font-family: Helmet, Freesans, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+  	font-weight: 300;
+}
+
+.time, .table tbody tr td.time {
 	font-family: monospace;
 	text-align: right;
+	vertical-align: middle !important;
 	/*background-color: rgba(0,0,255,0.4);*/
 }
 
@@ -33,4 +41,22 @@
 
 .action input[disabled] {
 	display: none;
+}
+
+.runnerthumb {
+	max-width: 32px;
+	float: left;
+	margin: 0 4px;
+	background-color: #666;
+}
+
+.runnernumber, .runnername {
+	margin-top: 0.6em;
+	display: block;
+	line-height: 0.7em;
+}
+
+.runnerstatus {
+	font-size: 80%;
+	line-height: 80%;
 }

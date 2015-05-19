@@ -92,6 +92,6 @@ class RunnersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def runner_params
-      params.require(:runner).permit(:name, :email, :expected_duration)
+      params.require(:runner).permit(:name, :email, :expected_duration, :race_number, :thumbnail_url)
     end
 end
