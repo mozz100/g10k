@@ -1,31 +1,36 @@
 <div ng-app="g10kAdminApp">
 	<div ng-controller="AdminCtrl">
-	    <div style="height: 2em;">
-	        <button class="btn btn-default" ng-click="startRace()" ng-show="race.state == 'unstarted'">Start race</button>
-	        <button class="btn btn-default" ng-click="resetRace()">Reset race</button>
-	    </div>
+		<p>
+        	<button class="btn btn-default" ng-click="startRace()" ng-show="race.state == 'unstarted'">Start race</button>
+        	<button class="btn btn-default" ng-click="resetRace()">Reset race</button>
+        </p>
 
 	    <table class="table table-striped table-bordered">
 	    	<tr>
+	    		<th></th>
 	    		<th>Name</th>
-	    		<th>50%</th>
+	    		<th>Half way</th>
 	    		<th>Finished</th>
-	    		<th>Status</th>
 	    	</tr>
 	    	<tr ng-repeat="runner in race.runners">
-	    		<td>{{ runner.name }}</td>
-	    		<td class="action">
-	    			<input ng-disabled="getCheckPoint(runner.id, 50)"  type="radio" name="action" ng-model="checkpoint.value" value="{{ runner.id }}|50"></input>
+	    		<td>{{ runner.race_number }}</td>
+	    		<td>
+	    			{{ runner.name }} <br/>
+	    			{{ runner.status }}
 	    		</td>
 	    		<td class="action">
-	    			<input ng-disabled="getCheckPoint(runner.id, 100)"  type="radio" name="action" ng-model="checkpoint.value" value="{{ runner.id }}|100"></input>
+	    			<input id="action50{{runner.id}}" ng-disabled="getCheckPoint(runner.id, 50)"  type="radio" name="action" ng-model="checkpoint.value" value="{{ runner.id }}|50"></input>
+	    			<label for="action50{{runner.id}}"></label>
 	    		</td>
-	    		<td>{{ runner.status }}</td>
+	    		<td class="action">
+	    			<input id="action100{{runner.id}}" ng-disabled="getCheckPoint(runner.id, 100)"  type="radio" name="action" ng-model="checkpoint.value" value="{{ runner.id }}|100"></input>
+	    			<label for="action100{{runner.id}}"></label>
+	    		</td>
 	    	</tr>
 	    </table>
-
-	    <button class="btn btn-large btn-primary" ng-click="submitAction()" ng-show="race.state == 'running'">NOW!</button>
-	    <pre>{{ checkpoint }}</pre>
+	    <p class="fixed-bottom text-center">
+		    <button class="now btn btn-large btn-primary" ng-click="submitAction()" ng-show="race.state == 'running'">NOW!</button>
+	    </p>
 	</div>
 
 </div>

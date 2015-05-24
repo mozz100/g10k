@@ -41,15 +41,6 @@ g10kAdminApp.controller('AdminCtrl', ['$scope', '$http', function ($scope, $http
         }
         return false;
     }
-    $scope.getStatus = function(runnerId) {
-        if (typeof($scope.race.runners) == 'undefined') {
-            return "";
-        }
-        for (var i=0; i < $scope.race.runners.length; i++) {
-            var r = $scope.race.runners[i];
-            if (r.id == runnerId) { return r.status }
-        }
-    }
 
     $scope.submitAction = function() {
         var atTime = (new Date()).getTime() / 1000.0;
