@@ -55,6 +55,8 @@ body {
 
 .runnerthumb {
 	max-width: 32px;
+	width: 32px;
+	height: 32px;
 	float: left;
 	margin: 0 4px;
 }
@@ -77,6 +79,6 @@ body {
 }
 
 .now {
-	height: 200px;
+	height: 100px;
 	width: 300px;
 }
