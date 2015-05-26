@@ -1,10 +1,10 @@
 <style>.main { padding-left: 0 !important; padding-right: 0 !important;}</style>
 
 <div style="padding: 10px">
-    <p class="small">Refreshes automatically. Race officials decisions are final!</p>    
+    <p class="small">Auto refreshes. Race officials’ decisions are final!</p>    
 </div>
 
-<div ng-app="g10kApp">
+<div ng-app="g10kApp" style="font-size: 12px;">
     <div ng-controller="RunnersCtrl">
         <p ng-hide="runners.length > 0">Loading...</p>
         <table class="table table-striped table-condensed" ng-show="runners.length > 0">
