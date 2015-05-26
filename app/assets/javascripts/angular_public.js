@@ -58,7 +58,7 @@ g10kApp.controller('RunnersCtrl', ['$scope', '$http', '$interval', function ($sc
     $scope.runners = [];
     $scope.race = {};
     $scope.sortProp = 'nominatedDuration';
-    $scope.reversed = false;
+    $scope.reversed = true;
 
     $scope.getPredicate = function() {
         return ($scope.reversed ? '-':'') + $scope.sortProp;
