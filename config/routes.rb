@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'race.json' => 'welcome#race'
   get 'admin' => 'welcome#admin'
+  get 'results' => 'welcome#results'
+  get 'about' => 'welcome#about'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

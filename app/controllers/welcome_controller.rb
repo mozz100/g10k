@@ -4,6 +4,12 @@ class WelcomeController < ApplicationController
   def index
   end
 
+  def results
+  end
+
+  def about
+  end
+
   def admin
     @runners = Runner.all.order(:id)
   end
