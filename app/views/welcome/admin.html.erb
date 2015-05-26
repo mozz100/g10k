@@ -7,16 +7,17 @@
 
 	    <table class="table table-striped table-bordered">
 	    	<tr>
-	    		<th></th>
-	    		<th>Name</th>
-	    		<th>Half way</th>
-	    		<th>Finished</th>
+	    		<th style="width: 5%"  ></th>
+	    		<th style="width: 45%" >Name</th>
+	    		<th style="width: 25%" >Half way</th>
+	    		<th style="width: 25%" >Finished</th>
 	    	</tr>
 	    	<tr ng-repeat="runner in race.runners">
-	    		<td>{{ runner.race_number }}</td>
-	    		<td>
-	    			{{ runner.name }} <br/>
-	    			{{ runner.status }}
+	    		<td style="padding: 18px; text-align: right;">{{ runner.race_number }}</td>
+	    		<td nowrap="nowrap">
+	    			<img class="runnerthumb img-circle" ng-src="{{ runner.thumbnail_url || '/images/nobody.png' }}" />
+                    <b class="runnername">{{ runner.name }}</b>
+                    <span class="runnerstatus text-small">{{ runner.status }}</span>
 	    		</td>
 	    		<td class="action">
 	    			<input id="action50{{runner.id}}" ng-disabled="getCheckPoint(runner.id, 50)"  type="radio" name="action" ng-model="checkpoint.value" value="{{ runner.id }}|50"></input>
