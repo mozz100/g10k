@@ -7,6 +7,9 @@ class WelcomeController < ApplicationController
   def results
   end
 
+  def route
+  end
+
   def about
   end
 
