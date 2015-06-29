@@ -23,7 +23,7 @@ g10kAdminApp.controller('AdminCtrl', ['$scope', '$http', function ($scope, $http
         doPOST('/runners/start_race', {start_time: startTime}, updateRace);
     }
     $scope.resetRace = function() {
-        if confirm('Reset race?') {
+        if (confirm('Reset race?')) {
             doPOST('/runners/reset');
         }
     }
