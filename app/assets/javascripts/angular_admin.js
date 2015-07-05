@@ -60,7 +60,7 @@ g10kAdminApp.controller('AdminCtrl', ['$scope', '$http', function ($scope, $http
         var atTime = (new Date()).getTime() / 1000.0;
         var runnerId = $scope.checkpoint.value.split("|")[0];
         var percent  = $scope.checkpoint.value.split("|")[1];
-        setCheckPoint(parseInt(runnerId), parseInt(percent));
+        $scope.setCheckPoint(parseInt(runnerId), parseInt(percent));
         console.log(runnerId, percent);
         doPOST('/runners/' + runnerId + '/checkpoint', {percent: percent, check_time: atTime});
     }

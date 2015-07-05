@@ -1,0 +1,185 @@
+/* line 1, /usr/src/app/app/assets/stylesheets/scaffolds.scss */
+body {
+  background-color: #fff;
+  color: #333;
+}
+
+/* line 9, /usr/src/app/app/assets/stylesheets/scaffolds.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+}
+
+/* line 14, /usr/src/app/app/assets/stylesheets/scaffolds.scss */
+a {
+  color: #000;
+}
+/* line 16, /usr/src/app/app/assets/stylesheets/scaffolds.scss */
+a:visited {
+  color: #666;
+}
+/* line 19, /usr/src/app/app/assets/stylesheets/scaffolds.scss */
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* line 26, /usr/src/app/app/assets/stylesheets/scaffolds.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 31, /usr/src/app/app/assets/stylesheets/scaffolds.scss */
+#notice {
+  color: green;
+}
+
+/* line 35, /usr/src/app/app/assets/stylesheets/scaffolds.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 41, /usr/src/app/app/assets/stylesheets/scaffolds.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 48, /usr/src/app/app/assets/stylesheets/scaffolds.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 58, /usr/src/app/app/assets/stylesheets/scaffolds.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+
+body {
+	font-family: Helmet, Freesans, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+  	font-weight: 300;
+}
+
+.time, .table tbody tr td.time {
+	font-family: monospace;
+	text-align: right;
+	vertical-align: middle !important;
+	/*background-color: rgba(0,0,255,0.4);*/
+}
+
+.action {
+	text-align: center;
+	height: 3em;
+}
+
+.action input {
+	display: none;
+}
+
+.action input + label {
+	display: block;
+	background-color: #ccc;
+	width: 100%;
+	height: 3em;
+}
+
+.action input:checked + label {
+	background-color: orange;
+}
+
+.action.submitted input:checked + label {
+	display: none;
+}
+
+.action input[disabled], .action input[disabled] + label {
+	display: none;
+}
+
+.runnerthumb {
+	max-width: 32px;
+	width: 32px;
+	height: 32px;
+	float: left;
+	margin: 0 4px;
+}
+
+.runnernumber, .runnername {
+	margin-top: 0.6em;
+	display: block;
+	line-height: 0.7em;
+}
+
+.runnerstatus {
+	font-size: 80%;
+	line-height: 80%;
+}
+
+.fixed-bottom {
+	position: fixed;
+	bottom: 1em;
+	width: 100%;
+}
+
+.now {
+	height: 100px;
+	width: 300px;
+}
+
+.box{
+  position: relative;
+  width: 100%;   /* desired width */
+  text-align: center;
+}
+.box:before{
+  content: "";
+  display: block;
+  padding-top: 56%;  /* initial aspect ratio */
+}
+.boxcontent {
+  position:  absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.3);
+  color: white;
+  border-radius: 6px;
+}
+.boxcontent .boxwriting {
+  bottom: 0px;
+  position: absolute;
+  width: 100%;
+}
+
+.table-admin {
+	margin-bottom: 200px;
+}
