@@ -47,6 +47,10 @@ body {
 	background-color: orange;
 }
 
+.action.submitted input:checked + label {
+	display: none;
+}
+
 .action input[disabled], .action input[disabled] + label {
 	display: none;
 }

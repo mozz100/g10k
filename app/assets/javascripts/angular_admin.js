@@ -44,10 +44,23 @@ g10kAdminApp.controller('AdminCtrl', ['$scope', '$http', function ($scope, $http
         return false;
     }
 
+    $scope.setCheckPoint = function(runnerId, percent) {
+        for (var i=0; i < $scope.race.runners.length; i++) {
+            var r = $scope.race.runners[i];
+            if (r.id == runnerId) {
+                r.check_points.push({
+                    percent: percent,
+                });
+                return
+            }
+        }        
+    }
+
     $scope.submitAction = function() {
         var atTime = (new Date()).getTime() / 1000.0;
         var runnerId = $scope.checkpoint.value.split("|")[0];
         var percent  = $scope.checkpoint.value.split("|")[1];
+        setCheckPoint(parseInt(runnerId), parseInt(percent));
         console.log(runnerId, percent);
         doPOST('/runners/' + runnerId + '/checkpoint', {percent: percent, check_time: atTime});
     }
