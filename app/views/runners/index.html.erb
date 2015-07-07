@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Race number</th>
       <th>Name</th>
       <th>Email</th>
       <th>Expected duration</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @runners.each do |runner| %>
       <tr>
+        <td><%= runner.race_number %></td>
         <td><%= runner.name %></td>
         <td><%= runner.email %></td>
         <td><%= number_with_precision(runner.expected_duration, precision: 2) %></td>
