@@ -24,7 +24,7 @@
         <td>
           <% if runner.actual_finish_time and runner.start_time %>
             <%= number_with_precision(runner.actual_finish_time - runner.start_time, precision: 2)%>
-          <% endif %>
+          <% end %>
         </td>
         <td><%= link_to 'Show', runner %></td>
         <td><%= link_to 'Edit', edit_runner_path(runner) %></td>
