@@ -1,5 +1,0 @@
-== g10k
-
-A Rails app for the smooth running of a very special running race.
-
-For more info on g10k, go to http://www.rmorrison.net/mnemozzyne/running-race-backwards and http://www.rmorrison.net/mnemozzyne/g10k2
