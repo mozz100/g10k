@@ -1,3 +1,6 @@
+RM 20160504 - `docker-compose build` followed by `docker-compose up` seems enough.
+Use `bundle package --all` to try to speed up subsequent gem installs.
+
 See https://registry.hub.docker.com/u/library/rails/
 
 ### Build image
