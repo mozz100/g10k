@@ -57,7 +57,7 @@ function getRaceTimeDisplay(now, startTime) {
 g10kApp.controller('RunnersCtrl', ['$scope', '$http', '$interval', function ($scope, $http, $interval) {
     $scope.runners = [];
     $scope.race = {};
-    $scope.sortProp = 'nominatedDuration';
+    $scope.sortProp = 'raceNumber';
     $scope.reversed = true;
 
     $scope.getPredicate = function() {
